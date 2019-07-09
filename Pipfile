@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.douban.com/simple/"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+termcolor = "*"
+pandas = "*"
+jupyter-contrib-nbextensions = "*"
+jupyter_nbextensions_configurator = "*"
+nbconvert = "*"
+notebook = "*"
+matplotlib = "*"
+ansimarkup = "*"
+networkx = "*"
+scapy = "*"
+autopep8 = "*"
+jupyter = "*"
+pysnooper = "*"
+nose = "*"
+
+[requires]
+python_version = "3"
