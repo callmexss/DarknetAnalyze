@@ -1,17 +1,38 @@
 import os
 from functools import wraps
+from typing import Union
 
 
-def get_basename(path):
+def get_basename(path: Union[bytes, str, os.PathLike]):
+    """Simple encapsulation of os.path.basename.
+
+    :param path: a path
+    :return: basename of given path
+    """
     return os.path.basename(path)
 
 
-def get_name_without_ext(path):
+def get_name_without_ext(path: Union[bytes, str, os.PathLike]):
     return os.path.splitext(get_basename(path))[0]
 
 
-def get_ext_name(path):
+def get_ext_name(path: Union[bytes, str, os.PathLike]):
+    """Get extension name of a file.
+
+    :param path: a path of a file
+    :return: extension name of a file if it has else return ""
+    """
     return os.path.splitext(get_basename(path))[1]
+
+
+def get_abs_path(path: Union[bytes, str, os.PathLike]):
+    """Get absolute path of several parts
+
+    :param path: root path
+    :param args: a list of parts to construct a path
+    :return: generate absolute path with given arguments
+    """
+    return os.path.abspath(os.path.join(path, *args))
 
 
 def raise_exception_if_path_not_exists(func):
