@@ -113,7 +113,8 @@ Exit: exit.pub exit.pri
 
 When Alice want to use the link, she encryted her messages:
 
-$$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
+<!-- $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$ -->
+![](./pictures/alice-encrypt.png)
 
 Then the packets transfer via the constructed link. Decryption happens at each node by its RSA private key, and become the original form at the exit node:
 

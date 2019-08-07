@@ -114,7 +114,8 @@ Exit: exit.pub exit.pri
 
 那么 Alice 首先加密一条消息：
 
-$$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
+<!-- $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$ -->
+![](./pictures/alice-encrypt.png)
 
 然后根据提前建立好的链路发送消息，每到一个节点使用各自的 RSA 私钥解密一层，最终在出口节点解密成原文发送到目的地。
 
