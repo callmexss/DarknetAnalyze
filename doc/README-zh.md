@@ -19,7 +19,7 @@
 
 ### 覆盖网络
 
-![覆盖网络的表示](./pictures/overlay-network.png)
+![覆盖网络的表示](../pictures/overlay-network.png)
 
 名词解释：
 
@@ -35,35 +35,35 @@
 
 **位置**：
 
-![](./pictures/location-distribution.png)
+![](../pictures/location-distribution.png)
 
 **Freenet URI:**
 
-![](./pictures/freenet-key.png)
+![](../pictures/freenet-key.png)
 
 **文件组织形式**：
 
-![](./pictures/file-organization.png)
+![](../pictures/file-organization.png)
 
 ### 路由
 
-![](./pictures/nodes-typology.png)
+![](../pictures/nodes-typology.png)
 
 网络拓扑——基于节点位置的小世界网络。
 
 **检索**：
 
-![](./pictures/request-process.png)
+![](../pictures/request-process.png)
 
-![](./pictures/request-example.png)
+![](../pictures/request-example.png)
 
 路由算法——基于位置的深度优先搜索。
 
 **插入**：
 
-![](./pictures/insert-process.png)
+![](../pictures/insert-process.png)
 
-![](./pictures/insert-example.png)
+![](../pictures/insert-example.png)
 
 随机插入一条消息到网络中，消息对应的位置值为 0.2950809848542828，成功插入到节点：
 
@@ -76,15 +76,15 @@ store at location 0.29382775921623394
 
 **从不同位置检索刚才插入的文件**：
 
-![](./pictures/request-example-0.png)
+![](../pictures/request-example-0.png)
 
-![](./pictures/request-example-1.png)
+![](../pictures/request-example-1.png)
 
-![](./pictures/request-example-2.png)
+![](../pictures/request-example-2.png)
 
-![](./pictures/request-example-3.png)
+![](../pictures/request-example-3.png)
 
-![](./pictures/request-example-4.png)
+![](../pictures/request-example-4.png)
 
 因为网络中有冗余存储，所以可以从不同位置的节点取到文件。
 
@@ -100,7 +100,7 @@ store at location 0.29382775921623394
 
 ### 针对 Tor 的主动流量分析
 
-![](./pictures/tor.png)
+![](../pictures/tor.png)
 
 给定以下条件：
 
@@ -118,7 +118,7 @@ $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
 
 然后根据提前建立好的链路发送消息，每到一个节点使用各自的 RSA 私钥解密一层，最终在出口节点解密成原文发送到目的地。
 
-![](./pictures/flow-watermark.png)
+![](../pictures/flow-watermark.png)
 
 > 流量水印，也称主动网络流水印，是一种主动网络流量分析技术。该技术通过某种方式可以改变发送端发送流中的一些特征，使之隐蔽携带一些特殊标记信息，即水印。该标记信息无法被路由器等常规网络硬件探测到，但可以被特殊的 嗅探设备发现，从而关联流的发送端和接收端。 
 
@@ -127,15 +127,15 @@ $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
 - 1000：代表休眠时间，单位为毫秒。
 - 101001000：代表水印模式，值为 1 时发送数据包，值为 0 时休眠，此处的模式表示一个周期内发送的三个数据包的时间间隔分别为 1，2，3 秒。
 
-![](./pictures/flow_with_watermark_1000_101001000.png)
+![](../pictures/flow_with_watermark_1000_101001000.png)
 
-![](./pictures/flow_with_watermark_1000_101001000_modify.png)
+![](../pictures/flow_with_watermark_1000_101001000_modify.png)
 
-![](./pictures/flow_with_watermark_1000_101001000_modify_2.png)
+![](../pictures/flow_with_watermark_1000_101001000_modify_2.png)
 
 下图为几种不同时隙和发送模式的流量水印。
 
-![](./pictures/flow_with_all.png)
+![](../pictures/flow_with_all.png)
 
 ### 针对 Tor 的被动流量分析
 
@@ -143,14 +143,14 @@ $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
 
 针对 Tor 的被动流量分析：
 
-![](./pictures/2018-11-21-16-22_field_time_via_scapy.png)
-![](./pictures/2018-11-21-16-22_no_filter.png)
+![](../pictures/2018-11-21-16-22_field_time_via_scapy.png)
+![](../pictures/2018-11-21-16-22_no_filter.png)
 
 ### 针对 Freenet 的主动流量分析
 
 上传端添加不同时隙的流量水印（斜率越来越大），下载端未见显著变化：
 
-![](./pictures/freenet-watermark-test.png)
+![](../pictures/freenet-watermark-test.png)
 
 ### 针对 Freenet 的被动流量分析
 
@@ -158,11 +158,11 @@ $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
 
 流经一个节点的请求的位置分布：
 
-![](./pictures/key_loc_distribution_line.png)
+![](../pictures/key_loc_distribution_line.png)
 
 流经节点的请求的 HTL 分布：
 
-![](./pictures/io_htl_distribution.png)
+![](../pictures/io_htl_distribution.png)
 
 
 
@@ -170,7 +170,7 @@ $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
 
 还是最开始的网络拓扑图，假设网络中有 30% 节点被攻击者控制：
 
-![](./pictures/bad-nodes-with-target.png)
+![](../pictures/bad-nodes-with-target.png)
 
 蓝色节点为攻击者节点，黄色节点为目标节点。攻击节点可以记录代理请求的信息（uid，htl，location）。
 
@@ -190,18 +190,19 @@ target: 0.00028349557720475094
  (0.15303569226992653, 1)]
 ```
 
-![](./pictures/possible-nodes.png)
+![](../pictures/possible-nodes.png)
 
 如果目标节点出现在可疑节点的前三位，则视为被发现。
 
 按照这个规则测试5次，每次模拟攻击 100 次，内部请求 1 次，绘制不同比例恶意节点下目标节点被发现的概率曲线图：
 
-![](./pictures/freenet-passive-100.png)
+![](../pictures/freenet-passive-100.png)
 
 模拟攻击 10000 次：
 
-![](./pictures/freenet-passive-10000.png)
+![](../pictures/freenet-passive-10000.png)
 
 模拟攻击 10000 次，内部分别请求不同次数（1，2，3，4，5）：
 
-![](./pictures/freenet-passive-10000-change.png)
+![](../pictures/freenet-passive-10000-change.png)
+
