@@ -1,18 +1,18 @@
-# DarknetAnalyze
+# DarknetAnalyze ([Chinese](./doc/README-zh.md))
 
 Analyze famous darknet Tor and Freenet via Python.
 
-    * [DarknetAnalyze](#darknetanalyze)
-        * [Introduction of Freenet](#introduction-of-freenet)
-            * [Overlay Network](#overlay-network)
-            * [Routing](#routing)
-            * [How Anonymity Works](#how-anonymity-works)
-        * [Flow Analysis](#flow-analysis)
-            * [Active Network Flow Analysis of Tor](#active-network-flow-analysis-of-tor)
-            * [Passive Network Flow Analysis of Tor](#passive-network-flow-analysis-of-tor)
-            * [Active Network Flow Analysis of Freenet](#active-network-flow-analysis-of-freenet)
-            * [Passive Network Flow Analysis of Freenet](#passive-network-flow-analysis-of-freenet)
-        * [Simulating the Passive Attack to Freenet](#simulating-the-passive-attack-to-freenet)
+* [DarknetAnalyze](#darknetanalyze)
+    * [Introduction of Freenet](#introduction-of-freenet)
+        * [Overlay Network](#overlay-network)
+        * [Routing](#routing)
+        * [How Anonymity Works](#how-anonymity-works)
+    * [Flow Analysis](#flow-analysis)
+        * [Active Network Flow Analysis of Tor](#active-network-flow-analysis-of-tor)
+        * [Passive Network Flow Analysis of Tor](#passive-network-flow-analysis-of-tor)
+        * [Active Network Flow Analysis of Freenet](#active-network-flow-analysis-of-freenet)
+        * [Passive Network Flow Analysis of Freenet](#passive-network-flow-analysis-of-freenet)
+    * [Simulating the Passive Attack to Freenet](#simulating-the-passive-attack-to-freenet)
 
 ## Introduction of Freenet 
 
