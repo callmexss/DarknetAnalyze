@@ -117,7 +117,7 @@ $$ En(msg) = En_{enter.pub}(En_{delay.pub}(En_{exit.pub}(msg))))$$
 
 Then the packets transfer via the constructed link. Decryption happens at each node by its RSA private key, and become the original form at the exit node:
 
-![](./pictures/flow-watermark.png)
+![](./pictures/flow-watermark-en.png)
 
 > Network flow watermarking is a type of active TA in which a watermark is embedded into selected flows in order to recognise that flows at specific points in the network.
 
