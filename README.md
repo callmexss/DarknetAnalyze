@@ -2,6 +2,8 @@
 
 Analyze famous darknet Tor and Freenet via Python.
 
+![toc]
+
 ## Introduction of Freenet 
 
 ### Overlay Network
@@ -26,7 +28,7 @@ Notation:
 
 **Freenet URI:**
 
-![](./pictures/freenet-key.png)
+![](./pictures/freenet-key-en.png)
 
 **The File Organization Manner**：
 
@@ -40,7 +42,7 @@ Network Typology —— based on small-world network.
 
 **Retrieve**：
 
-![](./pictures/request-process.png)
+![](./pictures/request-process-en.png)
 
 ![](./pictures/request-example.png)
 
@@ -48,7 +50,7 @@ Routing Algorithm —— depth first search via location.
 
 **Insertion**：
 
-![](./pictures/insert-process.png)
+![](./pictures/insert-process-en.png)
 
 ![](./pictures/insert-example.png)
 
@@ -136,7 +138,6 @@ Passive network analysis of Tor:
 ### Active Network Flow Analysis of Freenet
 
 Add time interval in upload side(the slope is becoming smaller, means that the sending rate is decreasing), but the download side receiving rate almost has no change.
-上传端添加不同时隙的流量水印（斜率越来越大），下载端未见显著变化：
 
 ![](./pictures/freenet-watermark-test.png)
 
@@ -152,7 +153,7 @@ The HTL distribution of request in a node:
 
 ![](./pictures/io_htl_distribution.png)
 
-## 模拟针对 Freenet 的被动攻击
+## Simulating the Passive Attack to Freenet
 
 The network typology is similar as the begining presentation, and we suppose that there are 30% of nodes are controled by adversary:
 

@@ -1,6 +1,6 @@
 # DarknetAnalyze
 
-Analyze famous darknet Tor and Freenet via Python.
+使用 Python 分析 Tor 和 Freenet。
 
 ## Freenet 介绍
 
