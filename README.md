@@ -166,7 +166,7 @@ The HTL distribution of request in a node:
 
 ## Simulating the Passive Attack to Freenet
 
-The network typology is similar as the begining presentation, and we suppose that there are 30% of nodes are controled by adversary:
+The network typology is similar as the begining presentation, and we suppose that there are 30% of nodes are controlled by adversary:
 
 ![](./pictures/bad-nodes-with-target.png)
 
@@ -190,18 +190,18 @@ target: 0.00028349557720475094
 
 ![](./pictures/possible-nodes.png)
 
-if target node shows in the most common three, than defines it as exposed.
+if target node shows in the most common three, then defines it as exposed.
 
-Simulate the process five turns, each turn runs 100 times, and each time target node send 1 request message. Draw pictures as follows:
+Simulate the process five turns, each turn runs 100 times, and each time the target node send 1 request message. Draw pictures as follows:
 
 ![](./pictures/freenet-passive-100.png)
 
-change the time to 10000:
+change each turn's time to 10000:
 
 ![](./pictures/freenet-passive-10000.png)
 
-keep the time as 10000, the inner request message count is (1, 2, 3, 4, 5):
+keep the each turn's time as 10000, change the inner request message count to 1, 2, 3, 4, 5 respectively:
 
 ![](./pictures/freenet-passive-10000-change.png)
 
-The expose rate decreases as the message count increases because the core principle of Freenet is hide in crowds, if there are more member's behavior similar as you, than you are more difficult to be find out.
+The expose rate decreases as the message count increases because the core principle of Freenet is "hide in crowds", if there are more member's behavior similar as you, than you are more difficult to be find out.
