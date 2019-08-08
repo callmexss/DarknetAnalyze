@@ -32,20 +32,21 @@ def check_dir_exists(f):
 
 
 class DFConverter:
-    # Collect field names from IP/TCP/UDP (These will be columns in DF)
-    ip_fields = [field.name for field in IP().fields_desc]
-    tcp_fields = [field.name for field in TCP().fields_desc]
-    udp_fields = [field.name for field in UDP().fields_desc]
+    def __init__(self):
+        """Collect Scapy fields and connect them as a whole."""
+        # Collect field names from IP/TCP/UDP (These will be columns in DF)
+        self.ip_fields = [field.name for field in IP().fields_desc]
+        self.tcp_fields = [field.name for field in TCP().fields_desc]
+        self.udp_fields = [field.name for field in UDP().fields_desc]
 
-    dataframe_fields = ip_fields + ['time'] + tcp_fields + \
-                       ['payload', 'payload_raw', 'payload_hex']
+        self.dataframe_fields = self.ip_fields + ['time'] + self.tcp_fields + \
+                                ['payload', 'payload_raw', 'payload_hex']
+        self.df = None
 
-    @staticmethod
-    def convert_packet_list_to_data_frame(pcap):
+    def convert_packet_list_to_data_frame(self, pcap):
         """Convert scapy packet list to pandas data frame.
 
         :param pcap: scapy packet list
-        :return: data frame
         """
         try:
             pcap = PacketList(pcap)
@@ -53,12 +54,12 @@ class DFConverter:
             print(f"Convert to PacketList failed...error is: {err}")
 
         # Create blank DataFrame
-        df = pd.DataFrame(columns=DFConverter.dataframe_fields)
+        df = pd.DataFrame(columns=self.dataframe_fields)
         for packet in pcap[IP]:
             # Field array for each row of DataFrame
             field_values = []
             # Add all IP fields to dataframe
-            for field in DFConverter.ip_fields:
+            for field in self.ip_fields:
                 if field == 'options':
                     # Retrieving number of options defined in IP Header
                     field_values.append(len(packet[IP].fields[field]))
@@ -68,7 +69,7 @@ class DFConverter:
             field_values.append(str(packet.time))
 
             layer_type = type(packet[IP].payload)
-            for field in DFConverter.tcp_fields:
+            for field in self.tcp_fields:
                 try:
                     if field == 'options':
                         field_values.append(len(packet[layer_type].fields[field]))
@@ -83,7 +84,7 @@ class DFConverter:
             field_values.append(binascii.hexlify(packet[layer_type].payload.original))
             # Add row to DF
             df_append = pd.DataFrame([field_values],
-                                     columns=DFConverter.dataframe_fields)
+                                     columns=self.dataframe_fields)
             df = pd.concat([df, df_append], axis=0)
 
         # Reset Index
@@ -91,7 +92,22 @@ class DFConverter:
         # Drop old index column
         df = df.drop(columns="index")
 
-        return df
+        self.df = df
+
+    def save_df_to_pickle(self, path):
+        """Save dataframe to a python pickle file.
+
+        :param path: a valid path with .pkl as extension
+        :return:
+        """
+        self.df.to_pickle(path)
+
+    def read_pkl_to_df(self, path):
+        """Read a python pickle file to dataframe.
+
+        :param path: a valid path with .pkl as extension
+        """
+        self.df = pd.read_pickle(path)
 
 
 class IOWorker:

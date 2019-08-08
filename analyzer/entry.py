@@ -5,6 +5,7 @@ from scapy.layers.inet import TCP, IP, UDP
 from scapy.packet import Raw, Padding
 
 from analyzer import packet_utils
+from analyzer.Analyzer import DFAnalyzer
 from analyzer.IOWorker import IOWorker, DFConverter
 from analyzer.TorAnalyzer import TorActiveAnalyzer
 
@@ -30,5 +31,14 @@ if __name__ == '__main__':
     # for p in packets:
     #     print(p)
 
-    df = DFConverter.convert_packet_list_to_data_frame(packets)
-    print(df)
+    packets = element.data
+
+    df_converter = DFConverter()
+    df_converter.convert_packet_list_to_data_frame(packets)
+    df_converter.read_pkl_to_df("../data/tor_active/500-1001.pkl")
+    # print(df_converter.df)
+    # df_converter.save_df_to_pickle("../data/tor_active/500-1001.pkl")
+    df_analyzer = DFAnalyzer(df_converter.df, sub_pic="500-1001")
+    df_analyzer.simple_plot(save=True)
+    df_analyzer.most_freq_plot(save=True)
+    df_analyzer.suspicious_plot(save=True)
