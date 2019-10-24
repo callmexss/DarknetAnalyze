@@ -109,3 +109,6 @@ venv.bak/
 
 # packet files
 *.pcapng
+
+# pipenv .lock
+*.lock
